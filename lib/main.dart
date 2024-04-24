@@ -30,6 +30,7 @@ class MyHomePage extends StatelessWidget {
         title: Text('hello world'),
         ),
         body:TextInput(),
+        backgroundColor: Colors.blueGrey[200],
     );
   }
 }
@@ -70,5 +71,34 @@ class _TextInputState extends State<TextInput> {
     ),
     Text(this.text)
     ]);
+  }
+}
+
+
+class Counter extends StatefulWidget {
+  const Counter({super.key});
+
+  @override
+  State<Counter> createState() => _CounterState();
+}
+
+
+//more stateful widgets..
+class _CounterState extends State<Counter> {
+  int _counter = 0;
+
+  void _incrementCounter() {
+    setState(() {
+      _counter++;
+    });
+  }
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        ElevatedButton(onPressed: _incrementCounter, child: Text('increment'))
+      ],
+    );
   }
 }
