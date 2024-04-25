@@ -7,6 +7,8 @@ void main() {
   runApp(const MainApp());
 }
 
+
+
 class MainApp extends StatelessWidget {
   const MainApp({super.key});
 
@@ -81,12 +83,18 @@ class CreateInstruction extends StatelessWidget {
             ),
             
             Padding(padding: 
-            EdgeInsets.only(bottom: 20),
+            EdgeInsets.only(bottom: 48),
             child:  AccountText(),),
 
-            ElevatedButtonSample()
+             ElevatedButtonSample(),
+
+            Padding(padding: EdgeInsets.fromLTRB(0, 24, 0, 44),
+              child: Text('Have an account? Sign in', 
+            style: TextStyle(fontWeight: FontWeight.w600, fontSize: 14, color: Color(0xFF1D2939), decoration: TextDecoration.underline),
+            ),
+            ),
             
-            
+            Or()
           ],
         ),
         
@@ -137,6 +145,7 @@ class ElevatedButtonSample extends StatefulWidget {
 }
 
 class _ElevatedButtonSampleState extends State<ElevatedButtonSample> {
+  String textt = 'Continue';
   @override
   Widget build(BuildContext context) {
     return  Row(
@@ -145,15 +154,17 @@ class _ElevatedButtonSampleState extends State<ElevatedButtonSample> {
         child: ElevatedButton(
      
       onPressed: () {
-       
+       setState(() {
+       textt = 'New Text';
+        });
       },
       style: ButtonStyle(
        backgroundColor: MaterialStateProperty.all<Color>(const Color(0xFF25A774)),
        
       ),
-      child:const Padding(
-        padding:EdgeInsets.symmetric(vertical: 15),
-       child:Text('Continue', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Color(0xFFFFFFFF),
+      child: Padding(
+        padding:const EdgeInsets.symmetric(vertical: 15),
+       child:Text(textt, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Color(0xFFFFFFFF),
       ),
       ),
         )
@@ -161,6 +172,37 @@ class _ElevatedButtonSampleState extends State<ElevatedButtonSample> {
     ),
         )
       ],
+    );
+  }
+}
+
+class Or extends StatelessWidget {
+  const Or({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child:const Row(children: <Widget>[
+        Expanded(
+          flex: 1,
+          child: 
+        Divider(color: Color(0xFF949494), height: 1,)
+        
+        ),
+        Padding(padding: EdgeInsets.symmetric(horizontal: 20),
+        child: Text('or', 
+        style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400, color: Color(0xFF1D2939)),
+        ),
+        ),
+        
+       Expanded(
+          flex: 1,
+          child: 
+          Divider(color: Color(0xFF949494), height: 1,)
+        
+        ),
+        
+      ],),
     );
   }
 }
