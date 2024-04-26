@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'reusable_button.dart';
+import 'signIn.dart';
+
 
 void main() {
   runApp(const MainApp());
@@ -23,6 +25,11 @@ class MainApp extends StatelessWidget {
         colorScheme:const ColorScheme.light(background: Colors.white)
       ),
       home:const MyHomePage(),
+      
+      routes: {
+        // '/': (context) => const MyHomePage(),
+        '/signIn': (context) =>const Verify(),
+      },
     );
   }
 }
@@ -88,12 +95,10 @@ class CreateInstruction extends StatelessWidget {
             child:  AccountText(),),
 
              ElevatedButtonSample(),
-
-            Padding(padding: EdgeInsets.fromLTRB(0, 24, 0, 44),
-              child: Text('Have an account? Sign in', 
-            style: TextStyle(fontWeight: FontWeight.w600, fontSize: 14, color: Color(0xFF1D2939), decoration: TextDecoration.underline),
-            ),
-            ),
+               SizedBox(height: 24,),
+               
+               SignIn(),
+            
             
             Or(),
             ApiButton(),
@@ -228,76 +233,28 @@ class ApiButton extends StatelessWidget {
 }
 
 
+class SignIn extends StatefulWidget {
+  const SignIn({super.key});
 
+  @override
+  State<SignIn> createState() => _SignInState();
+}
 
+class _SignInState extends State<SignIn> {
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+            onTap: () {
+            Navigator.pushNamed(context, '/signIn');
+          }, 
+          child:const Text(
+          'Have an account? Sign in',
+          style: TextStyle(
+          fontWeight: FontWeight.w600,
+          fontSize: 14,
+          color: Color(0xFF1D2939),
+          decoration: TextDecoration.underline,)),
+          );
 
-
-
-
-// class TextInput extends StatefulWidget {
-//   const TextInput({super.key});
-
-//   @override
-//   State<TextInput> createState() => _TextInputState();
-// }
-
-// class _TextInputState extends State<TextInput> {
-//   final controller = TextEditingController();
-//   String text= "";
-
-//   @override
-//   void dispose(){
-//     super.dispose();
-//     controller.dispose();
-//   }
-//   void changeText(text){
-//     // setState(() {
-//     //   this.text=text;
-//     // });
-//     this.text = text;
-//   }
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Column( 
-//       children: <Widget>[
-//       TextField(
-//       controller: this.controller,
-//       decoration: InputDecoration(
-//         prefixIcon: Icon(Icons.message), 
-//         labelText: "Type a message"),
-//         onChanged: (text)=> this.changeText(text),
-//     ),
-//     Text(this.text)
-//     ]);
-//   }
-// }
-
-
-// class Counter extends StatefulWidget {
-//   const Counter({super.key});
-
-//   @override
-//   State<Counter> createState() => _CounterState();
-// }
-
-
-// //more stateful widgets..
-// class _CounterState extends State<Counter> {
-//   int _counter = 0;
-
-//   void _incrementCounter() {
-//     setState(() {
-//       _counter++;
-//     });
-//   }
-//   @override
-//   Widget build(BuildContext context) {
-//     return Column(
-//       mainAxisAlignment: MainAxisAlignment.center,
-//       children: <Widget>[
-//         ElevatedButton(onPressed: _incrementCounter, child: Text('increment'))
-//       ],
-//     );
-//   }
-// }
+  }
+}
