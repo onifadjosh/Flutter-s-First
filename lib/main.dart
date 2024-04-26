@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
+import 'reusable_button.dart';
 
 void main() {
   runApp(const MainApp());
@@ -94,7 +95,8 @@ class CreateInstruction extends StatelessWidget {
             ),
             ),
             
-            Or()
+            Or(),
+            ApiButton(),
           ],
         ),
         
@@ -203,6 +205,24 @@ class Or extends StatelessWidget {
         ),
         
       ],),
+    );
+  }
+}
+
+class ApiButton extends StatelessWidget {
+  const ApiButton({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: <Widget>[
+        const SizedBox(height: 36),
+        ReusableButton(text:'Continue with Google', onPressed: (){}, color:const Color(0xFFF2F4F7), imageProvider:const AssetImage('lib/assets/images/google.png')),
+        const SizedBox(height: 12),
+        ReusableButton(text:'Continue with Apple', onPressed: (){}, color:const Color(0xFFF2F4F7), imageProvider:const AssetImage('lib/assets/images/apple.png')),
+      ],
     );
   }
 }
