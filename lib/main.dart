@@ -123,6 +123,7 @@ class AccountText extends StatelessWidget {
          onTap: () {
         FocusScope.of(context).requestFocus();
       },
+        cursorColor: Colors.green,
       
         decoration:const InputDecoration(
           border: InputBorder.none,
