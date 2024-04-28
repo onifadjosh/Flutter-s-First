@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'reusable_button.dart';
-import 'signIn.dart';
+import 'sign_In.dart';
 
 
 void main() {
@@ -28,7 +28,7 @@ class MainApp extends StatelessWidget {
       
       routes: {
         // '/': (context) => const MyHomePage(),
-        '/signIn': (context) =>const Verify(),
+        '/sign_In': (context) =>const Verify(),
       },
     );
   }
@@ -225,9 +225,9 @@ class ApiButton extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
         const SizedBox(height: 36),
-        ReusableButton(text:'Continue with Google', onPressed: (){}, color:const Color(0xFFF2F4F7), imageProvider:const AssetImage('lib/assets/images/google.png')),
+        ReusableButton(text:'Continue with Google', colorr: const Color(0xFF949494),onPressed: (){}, color:const Color(0xFFF2F4F7), imageProvider:const AssetImage('lib/assets/images/google.png')),
         const SizedBox(height: 12),
-        ReusableButton(text:'Continue with Apple', onPressed: (){}, color:const Color(0xFFF2F4F7), imageProvider:const AssetImage('lib/assets/images/apple.png')),
+        ReusableButton(text:'Continue with Apple', colorr: const Color(0xFF949494),onPressed: (){}, color:const Color(0xFFF2F4F7), imageProvider:const AssetImage('lib/assets/images/apple.png')),
       ],
     );
   }
@@ -246,7 +246,7 @@ class _SignInState extends State<SignIn> {
   Widget build(BuildContext context) {
     return GestureDetector(
             onTap: () {
-            Navigator.pushNamed(context, '/signIn');
+            Navigator.pushNamed(context, '/sign_In');
           }, 
           child:const Text(
           'Have an account? Sign in',
