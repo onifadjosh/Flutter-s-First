@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class ReusableButton extends StatelessWidget {
   final String text;
   final Color color;
+  final Color colorr;
   final AssetImage imageProvider;
   final VoidCallback onPressed;
   
@@ -12,6 +13,7 @@ class ReusableButton extends StatelessWidget {
     required this.onPressed,
     required this.imageProvider,
     required this.color,
+    required this.colorr,
      Key?key
   }):super(key: key);
 
@@ -23,7 +25,9 @@ class ReusableButton extends StatelessWidget {
         child:  ElevatedButton(
         onPressed: (){}, 
         style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all<Color>(color)
+          backgroundColor: MaterialStateProperty.all<Color>(color),
+          surfaceTintColor: MaterialStateProperty.all<Color>(color),
+          overlayColor: MaterialStateProperty.all<Color>(colorr)
         ),
         child: Padding(padding:const EdgeInsets.symmetric(vertical: 15),
           child: Row(
