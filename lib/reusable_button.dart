@@ -27,16 +27,17 @@ class ReusableButton extends StatelessWidget {
         style: ButtonStyle(
           backgroundColor: MaterialStateProperty.all<Color>(color),
           surfaceTintColor: MaterialStateProperty.all<Color>(color),
-          overlayColor: MaterialStateProperty.all<Color>(colorr)
+          overlayColor: MaterialStateProperty.all<Color>(colorr),
+          shadowColor: MaterialStateProperty.all(Colors.transparent)
         ),
         child: Padding(padding:const EdgeInsets.symmetric(vertical: 15),
           child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             // Icon( color: Colors.white,),
             // const Icon(Icons.imageProvider, size: 24),
             Image(image: imageProvider, height: 24, width: 24,),
-            const SizedBox(width: 33.5),
+            const SizedBox(width: 37.5),
             Text(text, style:const TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Color(0xFF1D2939)),
             ),
           ],
