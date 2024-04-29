@@ -20,5 +20,15 @@ flutter:
   assets:
     - lib/assets/images/google.png
     - lib/assets/images/apple.png
-
+    - lib/assets/images/mobile.png
+    - lib/assets/images/
+  fonts:
+    - family: Nunito
+      fonts: 
+        - asset: fonts/Nunito-Regular.ttf
+        - asset: fonts/Nunito-Bold.ttf
+        - asset: fonts/Nunito-ExtraBold.ttf
+        - asset: fonts/Nunito-Light.ttf
+        - asset: fonts/Nunito-Medium.ttf
+        - asset: fonts/Nunito-SemiBold.ttf
    
