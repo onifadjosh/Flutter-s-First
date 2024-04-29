@@ -19,35 +19,41 @@ class Verify extends StatelessWidget {
       ),
       ),
 
-      body: Padding(
-          padding:EdgeInsets.symmetric(horizontal: 24),
+      body: SingleChildScrollView(
+        child:  Padding(
+          padding:const EdgeInsets.symmetric(horizontal: 16),
           child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
         const Text('Sign In', style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600,),),
-        const Text('Sign in to your Pairdel account.', style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400),),
+        const SizedBox(height: 12),
+        const Text('Sign in to your Pairdel account.', style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400, fontFamily: 'Nunito'),),
+        const SizedBox(height: 36),
         const TextFieldMail(),
         const SizedBox(height: 12),
         const Password(),
+        const SizedBox(height: 12),
         const ForgetPassword(),
+        const SizedBox(height: 30),
         const ElevatedButtonSample(),
-       const  NoAccount(),
+        const SizedBox(height: 14),
+        const  NoAccount(),
+        const SizedBox(height: 30),
         const Or(),
-        Padding(padding: EdgeInsets.all(0),
-        child: Column(
-          children: <Widget>[
-            
-            ReusableButton(text:'SignIn with Apple', colorr: Color(0xFF949494), onPressed: (){}, color:Color(0xFFF2F4F7), imageProvider:AssetImage('lib/assets/images/apple.png')),
-           const SizedBox(height: 12),
-            ReusableButton(text:'SignIn with Apple', colorr: Color(0xFF949494),onPressed: (){}, color:Color(0xFFF2F4F7), imageProvider:AssetImage('lib/assets/images/apple.png')),
-            ReusableButton(text:'SignIn with Apple', colorr: Color(0xFF949494),onPressed: (){}, color:Color(0xFFF2F4F7), imageProvider:AssetImage('lib/assets/images/apple.png')),
-          ],
-        ),
-        )
-      ],
+        const SizedBox(height: 36,),
+        ReusableButton(text:'Continue with Phone', colorr: Color(0xFF949494), onPressed: (){}, color:Color(0xFFF2F4F7), imageProvider:AssetImage('lib/assets/images/mobile.png')),
+        const SizedBox(height: 12),
+        ReusableButton(text:'Continue with Google', colorr: Color(0xFF949494),onPressed: (){}, color:Color(0xFFF2F4F7), imageProvider:AssetImage('lib/assets/images/google.png')),
+        const SizedBox(height: 12),
+        ReusableButton(text:'Continue with Apple', colorr: Color(0xFF949494),onPressed: (){}, color:Color(0xFFF2F4F7), imageProvider:AssetImage('lib/assets/images/apple.png')),
+        // Form(child: child),
+        // TextFormField()
+        
+        ],
       ),
       )
+         )
     );
   }
 }
@@ -65,16 +71,23 @@ class TextFieldMail extends StatefulWidget {
 class _TextFieldMailState extends State<TextFieldMail> {
   @override
   Widget build(BuildContext context) {
-    return const SizedBox(
+    return  SizedBox(
       width: double.infinity,
       height: 56,
       
         child:TextField(
-        decoration: InputDecoration(
+          onTap: (){
+            FocusScope.of(context).requestFocus();
+          },
+        decoration:const InputDecoration(
           label: Text('Email Address'),
           focusColor: Colors.green,
           border: InputBorder.none,
           labelStyle: TextStyle( color: Color(0xFF949494), fontSize: 16, fontWeight: FontWeight.w400,),
+          focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: Colors.green),
+        
+          ),
           
           fillColor: Color(0xFFF2F4F7),
           filled: true,
@@ -93,17 +106,24 @@ class Password extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SizedBox(
+    return  SizedBox(
       width: double.infinity,
       height: 56,
         
         child:TextField(
+          onTap: () {
+            FocusScope.of(context).requestFocus();
+          },
           obscureText: true,
-        decoration: InputDecoration(
+        decoration:const InputDecoration(
           label: Text('Password'),
           focusColor: Colors.green,
           border: InputBorder.none,
           labelStyle: TextStyle( color: Color(0xFF949494), fontSize: 16, fontWeight: FontWeight.w400,),
+          focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: Colors.green),
+        
+          ),
           
           fillColor: Color(0xFFF2F4F7),
           filled: true,
@@ -131,6 +151,7 @@ class ForgetPassword extends StatelessWidget {
       style: TextStyle(
           fontWeight: FontWeight.w600,
           fontSize: 14,
+           fontFamily: 'Nunito',
           color: Color(0xFF1D2939),
           decoration: TextDecoration.underline,)
           ), 
